@@ -102,9 +102,7 @@
     <!-- Bootstrap icons  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="styles.css" rel="stylesheet">
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js"></script>
+   
   </head>
   <body class="d-flex h-100 text-center text-bg-dark bg-light">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -383,56 +381,9 @@
           header.classList.toggle("scrolling", window.scrollY > 0)
         })
 </script>
-<script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js"></script>
 
-<script>
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyD0AVz-MmUJXu-pHerJ45WOCn2AkPArL1Y",
-    authDomain: "my-bootstrap-portfolio1.firebaseapp.com",
-    projectId: "my-bootstrap-portfolio1",
-    storageBucket: "my-bootstrap-portfolio1.appspot.com",
-    messagingSenderId: "200813806509",
-    appId: "1:200813806509:web:cd0ecb51830b72a4781724",
-    measurementId: "G-K3HWJMWYE3"
-  };
 
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const analytics = firebase.getAnalytics(app);
-  const db = firebase.getFirestore(app);
-
-  // Reference to your form
-  const contactForm = document.getElementById("contactForm");
-
-  // Handle form submission
-  contactForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const subject = document.getElementById("subject").value;
-    const message = document.getElementById("message").value;
-
-    try {
-      await firebase.addDoc(firebase.collection(db, "contactForm"), {
-        name: name,
-        email: email,
-        subject: subject,
-        message: message,
-        submittedAt: firebase.firestore.FieldValue.serverTimestamp()
-      });
-      alert("Message submitted successfully!");
-      contactForm.reset(); // Reset form after successful submission
-    } catch (error) {
-      console.error("Error writing document: ", error);
-      alert("Failed to submit the message. Please try again.");
-    }
-  });
-</script>
-
+  
 
 
 </body>
